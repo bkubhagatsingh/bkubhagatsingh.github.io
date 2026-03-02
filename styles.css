@@ -1,0 +1,51 @@
+:root{
+  --green:#1faa59; --green2:#68d391;
+  --bg:#0e1525; --panel:rgba(255,255,255,.06);
+  --border:rgba(255,255,255,.15); --text:#fff;
+  --muted:#a8b3cf; --ink:#0b1020;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,Segoe UI,Roboto,Arial}
+a{color:#f5ffd0;text-decoration:none}
+img{max-width:100%;display:block}
+
+.hero{
+  background:linear-gradient(120deg,var(--green),var(--green2));
+  color:#08210e; padding:16px;
+}
+.hero h1{margin:0;font-size:24px}
+.nav{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:8px}
+.nav a{color:#08210e;font-weight:800}
+
+.container{max-width:1024px;margin:16px auto;padding:0 12px}
+section{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:12px;margin:12px 0}
+h2{margin:0 0 8px}
+
+input,select{
+  width:100%;padding:10px;border-radius:8px;outline:none;
+  border:1px solid rgba(255,255,255,.3);
+  background:rgba(255,255,255,.08); color:var(--text);
+}
+label{display:block;margin:6px 0 4px}
+
+.btn,.btn-secondary{
+  padding:8px 12px;border:0;border-radius:10px;cursor:pointer;font-weight:800
+}
+.btn{background:#0df466;color:#07210e}
+.btn-secondary{background:#26324a;color:#fff;border:1px solid #3b4a6b}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(max-width:720px){ .grid2{grid-template-columns:1fr} }
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.card{background:#131d33;border:1px solid #24314f;border-radius:10px;padding:10px}
+.card h3{margin:6px 0 4px}
+.card p{margin:0 0 6px;color:var(--muted)}
+
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:8px}
+.msg{display:none;margin-top:10px;padding:10px;border-radius:8px}
+.msg.ok{display:block;background:rgba(24,198,131,.2);border:1px solid rgba(24,198,131,.6)}
+.msg.err{display:block;background:rgba(255,82,82,.2);border:1px solid rgba(255,82,82,.6)}
+.hide{display:none}
+
+.qr{max-width:260px;border-radius:10px;border:1px solid rgba(255,255,255,.25);background:#fff}
