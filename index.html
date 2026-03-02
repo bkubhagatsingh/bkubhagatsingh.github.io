@@ -1,1 +1,173 @@
 
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>भारतीय किसान यूनियन – भगत सिंह</title>
+  <meta name="description" content="BKU Bhagat Singh - Official website (Google Apps Script + Google Drive backend)">
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<header class="hero">
+  <h1>भारतीय किसान यूनियन – भगत सिंह</h1>
+  <nav class="nav">
+    <a href="#news">समाचार</a>
+    <a href="#gallery">गैलरी</a>
+    <a href="#leaders">नेतृत्व</a>
+    <a href="#join">सदस्यता</a>
+    <a href="#donate">दान</a>
+    <button class="btn-secondary" onclick="scrollToJoin()">Login / Membership</button>
+  </nav>
+</header>
+
+<main class="container">
+
+  <!-- NEWS -->
+  <section id="news">
+    <h2>समाचार</h2>
+    <div id="newsList" class="cards">लोड हो रहा…</div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <h2>गैलरी</h2>
+    <div id="galList" class="grid">लोड हो रहा…</div>
+  </section>
+
+  <!-- LEADERS -->
+  <section id="leaders">
+    <h2>नेतृत्व</h2>
+    <div id="leadList" class="cards">लोड हो रहा…</div>
+  </section>
+
+  <!-- MEMBERSHIP / JOIN -->
+  <section id="join">
+    <h2>सदस्यता</h2>
+
+    <div class="grid2">
+      <div>
+        <label>नाम</label>
+        <input id="m-name" placeholder="नाम"/>
+      </div>
+      <div>
+        <label>ई‑मेल (OTP)</label>
+        <input id="m-email" placeholder="name@example.com"/>
+      </div>
+      <div>
+        <label>मोबाइल</label>
+        <input id="m-mobile" placeholder="+91XXXXXXXXXX"/>
+      </div>
+      <div>
+        <label>वैकल्पिक मोबाइल</label>
+        <input id="m-alt" placeholder="Optional"/>
+      </div>
+      <div>
+        <label>राज्य</label>
+        <select id="m-state"></select>
+      </div>
+      <div>
+        <label>जिला</label>
+        <select id="m-district"></select>
+      </div>
+      <div>
+        <label>शहर</label>
+        <input id="m-city" placeholder="CITY"/>
+      </div>
+      <div>
+        <label>फोटो (optional)</label>
+        <input id="m-photo" type="file" accept="image/*"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <button class="btn" onclick="sendOtp()">OTP भेजें</button>
+      <input id="m-otp" placeholder="OTP"/>
+      <button class="btn-secondary" onclick="verifyOtp()">OTP Verify</button>
+      <button class="btn" onclick="registerMember()">सदस्यता बनाएं</button>
+    </div>
+
+    <div id="m-msg" class="msg"></div>
+  </section>
+
+  <!-- DONATION -->
+  <section id="donate">
+    <h2>दान</h2>
+
+    <div class="grid2">
+      <div>
+        <label>नाम</label>
+        <input id="d-name" placeholder="नाम"/>
+      </div>
+      <div>
+        <label>मोबाइल</label>
+        <input id="d-mobile" placeholder="+91XXXXXXXXXX"/>
+      </div>
+      <div>
+        <label>राशि (₹)</label>
+        <input id="d-amount" type="number" value="100"/>
+      </div>
+      <div>
+        <label>UPI QR स्कैन करें</label>
+        <img src="assets/upi_qr.png" alt="UPI QR" class="qr"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <button class="btn" onclick="upiIntent()">UPI ऐप से भुगतान</button>
+      <input id="d-ref" placeholder="Reference / UTR (optional)"/>
+      <button class="btn-secondary" onclick="logDonation()">भुगतान लॉग करें</button>
+    </div>
+
+    <div id="d-msg" class="msg"></div>
+  </section>
+
+  <!-- ADMIN (login ke baad dikhega) -->
+  <section id="admin" class="hide">
+    <h2>समाचार / गैलरी जोड़ें (Login के बाद)</h2>
+
+    <div class="grid2">
+      <div>
+        <label>समाचार शीर्षक</label>
+        <input id="n-title"/>
+      </div>
+      <div>
+        <label>विवरण</label>
+        <input id="n-body"/>
+      </div>
+      <div>
+        <label>समाचार चित्र</label>
+        <input id="n-img" type="file" accept="image/*"/>
+      </div>
+    </div>
+    <div class="row">
+      <button class="btn" onclick="createNews()">समाचार जोड़ें</button>
+    </div>
+
+    <hr/>
+
+    <div class="grid2">
+      <div>
+        <label>गैलरी कैप्शन</label>
+        <input id="g-cap"/>
+      </div>
+      <div>
+        <label>गैलरी चित्र</label>
+        <input id="g-img" type="file" accept="image/*"/>
+      </div>
+    </div>
+    <div class="row">
+      <button class="btn" onclick="uploadGallery()">गैलरी अपलोड</button>
+    </div>
+
+    <div id="a-msg" class="msg"></div>
+  </section>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
+``
+
